@@ -1,0 +1,21 @@
+{
+  "description": "This file tracks changes made to this project via opsify",
+  "changes": [
+    {
+      "opsifyVersion": "3.3.0",
+      "ops": {
+        "url": "git@adv-inc-gitlab-eval.westeurope.cloudapp.azure.com:devops/opsify-k8s-ops.git",
+        "commitId": "765f20e45ca64d548bd167b57f87cbbace860cf3"
+      },
+      "action": "BOOTSTRAP_CREATE",
+      "templates": [
+        {
+          "repoUrl": "git@adv-inc-gitlab-eval.westeurope.cloudapp.azure.com:devops/opsify-templates/opsify-template-java-springboot.git",
+          "repoCommitId": "813b4af2daf9b65889e40ac5b8f71c0ae694502b"
+        }
+      ],
+      "date": "2022-04-22T13:40:57.598Z"
+    }
+  ],
+  "project_type": "PROJECT"
+}

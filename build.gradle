@@ -1,0 +1,45 @@
+plugins {
+    //  springBootVersion is defined in gradle.properties !!!
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id "maven-publish"
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id "com.google.cloud.artifactregistry.gradle-plugin" version "2.1.5"
+}
+
+apply plugin: 'io.spring.dependency-management'
+group = 'com.erebos.ant'
+version = '1.0.39'
+
+test {
+    useJUnitPlatform()
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+ext {
+    guavaVersion = '31.1-jre'
+    junit5Version = '5.8.2'
+    hamcrestVersion = '2.2'
+}
+ext['log4j2.version'] = '2.17.1'
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+dependencies {
+    implementation "com.google.guava:guava:$guavaVersion"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.3'
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junit5Version"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junit5Version"
+    testImplementation "org.hamcrest:hamcrest:$hamcrestVersion"
+}
