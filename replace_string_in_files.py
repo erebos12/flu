@@ -37,10 +37,10 @@ def main(argv):
     replace = ''
     file_pattern = ''
     search_regex = ''
-    opts, args = getopt.getopt(argv, "hi:o:", ["replace=", "search_regex=", "file_pattern="])
+    opts, args = getopt.getopt(argv, "", ["replace=", "search_regex=", "file_pattern="])
     for opt, arg in opts:
         if opt == '-h':
-            print('replace_string_in_files.py -r <replace> -s <search_regex> -f <file_pattern>')
+            print('replace_string_in_files.py --r <replace> --s <search_regex> --f <file_pattern>')
             sys.exit()
         elif opt in ("-s", "--search_regex"):
             search_regex = arg

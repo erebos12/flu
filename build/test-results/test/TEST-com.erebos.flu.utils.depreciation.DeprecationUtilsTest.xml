@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.erebos.flu.utils.depreciation.DeprecationUtilsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-21T12:39:30" hostname="DE_NCP9F2K4KH" time="0.001">
+  <properties/>
+  <testcase name="shouldProperCalculateNetBookEndValue()" classname="com.erebos.flu.utils.depreciation.DeprecationUtilsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

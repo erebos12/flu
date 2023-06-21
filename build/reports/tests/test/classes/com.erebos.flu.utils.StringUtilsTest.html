@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - StringUtilsTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>StringUtilsTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.erebos.flu.utils.html">com.erebos.flu.utils</a> &gt; StringUtilsTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">24</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.029s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">[1] stringOne=null, stringTwo=null, isEqual=false</td>
+<td class="success">TestStringsNotNullAndEqual(String, String, boolean)[1]</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] stringOne=null, stringTwo=test1, isEqual=false</td>
+<td class="success">TestStringsNotNullAndEqual(String, String, boolean)[2]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] stringOne=test1, stringTwo=null, isEqual=false</td>
+<td class="success">TestStringsNotNullAndEqual(String, String, boolean)[3]</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[4] stringOne=test1, stringTwo=test1, isEqual=true</td>
+<td class="success">TestStringsNotNullAndEqual(String, String, boolean)[4]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[5] stringOne=, stringTwo=, isEqual=true</td>
+<td class="success">TestStringsNotNullAndEqual(String, String, boolean)[5]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[6] stringOne=test2, stringTwo=test1, isEqual=false</td>
+<td class="success">TestStringsNotNullAndEqual(String, String, boolean)[6]</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[1] value=null</td>
+<td class="success">checkStringNullOrEmpty(String)[1]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] value=</td>
+<td class="success">checkStringNullOrEmpty(String)[2]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] value= </td>
+<td class="success">checkStringNullOrEmpty(String)[3]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[4] value=	</td>
+<td class="success">checkStringNullOrEmpty(String)[4]</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[5] value=
+</td>
+<td class="success">checkStringNullOrEmpty(String)[5]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[1] s1=s1, s2=s2, expected=s1/s2</td>
+<td class="success">testConcatStrings(String, String, String)[1]</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] s1=s1, s2=null, expected=s1</td>
+<td class="success">testConcatStrings(String, String, String)[2]</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] s1=null, s2=null, expected=null</td>
+<td class="success">testConcatStrings(String, String, String)[3]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[4] s1=null, s2=s2, expected=null/s2</td>
+<td class="success">testConcatStrings(String, String, String)[4]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testConcatStringsNew()</td>
+<td class="success">testConcatStringsNew()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[1] s=s1, expected=s1</td>
+<td class="success">testGetNullableString(String, String)[1]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] s=null, expected=</td>
+<td class="success">testGetNullableString(String, String)[2]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] s=, expected=</td>
+<td class="success">testGetNullableString(String, String)[3]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[1] s=s1, expected=s1</td>
+<td class="success">testGetNullableStringWithNA(String, String)[1]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] s=null, expected=NA</td>
+<td class="success">testGetNullableStringWithNA(String, String)[2]</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] s=, expected=NA</td>
+<td class="success">testGetNullableStringWithNA(String, String)[3]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetStringMemberFromObj()</td>
+<td class="success">testGetStringMemberFromObj()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testValidateStringParameter()</td>
+<td class="success">testValidateStringParameter()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.4.1</a> at 21.06.2023, 14:39:30</p>
+</div>
+</div>
+</body>
+</html>

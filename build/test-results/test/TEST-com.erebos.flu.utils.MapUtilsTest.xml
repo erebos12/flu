@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.erebos.flu.utils.MapUtilsTest" tests="30" skipped="0" failures="0" errors="0" timestamp="2023-06-21T12:39:30" hostname="DE_NCP9F2K4KH" time="0.028">
+  <properties/>
+  <testcase name="fetchKeysFromMapTest()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="testRemoveKeyFromListOfMaps()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="testIntersectMaps()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="testRemoveIfKeyIsEmptyOrNull()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testConvertListToMap_with_duplicate_key()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.002"/>
+  <testcase name="testGetMapByMapKey()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="testRoundValues()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="testUpdateMapDoubleValues()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testIsMapNullOrEmpty()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testConvertListToEmptyMap()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="intersectMapsReturnMapTest()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="testRemoveKeyFromEmptyMap()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testRemoveKeyFromMap()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="calculateSumOfAllMapValuesTest()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testIntersectMapAndListToMap()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="testConvertListToMap()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="TestGetListByMapKey()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testCalculateSumOfAllNestedMapValues()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="flatMapToListTest()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testIntersectMapAndList()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.004"/>
+  <testcase name="testCreateMapFromListByMembers()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="testGetNullableMap()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.001"/>
+  <testcase name="testMapValuesToList()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testGetSetByMapKey()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testFilterByValue()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.002"/>
+  <testcase name="testRemoveKeyFromListOfMapsEmptyMap()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testCalculateDoubleSumByMember()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.002"/>
+  <testcase name="testSortMap()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <testcase name="testIntersectMapsByKey()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.006"/>
+  <testcase name="flatMapInMapToListTest()" classname="com.erebos.flu.utils.MapUtilsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

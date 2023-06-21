@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - DepreciationCalculationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>DepreciationCalculationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.erebos.flu.utils.depreciation.html">com.erebos.flu.utils.depreciation</a> &gt; DepreciationCalculationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">21</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.003s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">[1] calculationYear=2022, purchasingDate=2023-03-01, purchaseAmount=200000.0, lifeTimeInMonths=0, expectedDepreciationValue=0.0, testCase=Year(purchasingDate) &gt; calculationYear</td>
+<td class="success">calculateDepreciationValue(int, LocalDate, double, int, double, String)[1]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] calculationYear=2022, purchasingDate=2011-03-01, purchaseAmount=200000.0, lifeTimeInMonths=0, expectedDepreciationValue=0.0, testCase=LifeTimeInYears == 0</td>
+<td class="success">calculateDepreciationValue(int, LocalDate, double, int, double, String)[2]</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] calculationYear=2022, purchasingDate=2011-03-01, purchaseAmount=200000.0, lifeTimeInMonths=11988, expectedDepreciationValue=0.0, testCase=LifeTimeInYears == 999</td>
+<td class="success">calculateDepreciationValue(int, LocalDate, double, int, double, String)[3]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[4] calculationYear=2022, purchasingDate=2011-04-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedDepreciationValue=0.0, testCase=LastDepreciationYear &lt; calculationYear</td>
+<td class="success">calculateDepreciationValue(int, LocalDate, double, int, double, String)[4]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[5] calculationYear=2022, purchasingDate=2022-03-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedDepreciationValue=16666.666666666668, testCase=Year(purchasingDate) == calculationYear</td>
+<td class="success">calculateDepreciationValue(int, LocalDate, double, int, double, String)[5]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[6] calculationYear=2022, purchasingDate=2012-10-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedDepreciationValue=15000.0, testCase=LastDepreciationYear == calculationYear</td>
+<td class="success">calculateDepreciationValue(int, LocalDate, double, int, double, String)[6]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[7] calculationYear=2022, purchasingDate=2020-05-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedDepreciationValue=20000.0, testCase=else</td>
+<td class="success">calculateDepreciationValue(int, LocalDate, double, int, double, String)[7]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[8] calculationYear=2022, purchasingDate=null, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedDepreciationValue=0, testCase=null LocalDate</td>
+<td class="success">calculateDepreciationValue(int, LocalDate, double, int, double, String)[8]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[1] calculationYear=2022, purchasingDate=2023-03-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedNetBookValueBegin=0.0, testCase=Year(purchasingDate) &gt; calculationYear</td>
+<td class="success">calculateNetBookValueBegin(int, LocalDate, double, int, double, String)[1]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] calculationYear=2022, purchasingDate=2022-03-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedNetBookValueBegin=0.0, testCase=Year(purchasingDate) == calculationYear</td>
+<td class="success">calculateNetBookValueBegin(int, LocalDate, double, int, double, String)[2]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] calculationYear=2022, purchasingDate=2011-03-01, purchaseAmount=200000.0, lifeTimeInMonths=0, expectedNetBookValueBegin=200000.0, testCase=LifeTimeInYears == 0</td>
+<td class="success">calculateNetBookValueBegin(int, LocalDate, double, int, double, String)[3]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[4] calculationYear=2022, purchasingDate=2011-03-01, purchaseAmount=200000.0, lifeTimeInMonths=11988, expectedNetBookValueBegin=200000.0, testCase=LifeTimeInYears == 999</td>
+<td class="success">calculateNetBookValueBegin(int, LocalDate, double, int, double, String)[4]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[5] calculationYear=2022, purchasingDate=2011-04-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedNetBookValueBegin=0.0, testCase=LastDepreciationYear &lt; calculationYear</td>
+<td class="success">calculateNetBookValueBegin(int, LocalDate, double, int, double, String)[5]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[6] calculationYear=2022, purchasingDate=2020-05-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedNetBookValueBegin=166666.6666666667, testCase=else</td>
+<td class="success">calculateNetBookValueBegin(int, LocalDate, double, int, double, String)[6]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[7] calculationYear=2022, purchasingDate=null, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedNetBookValueBegin=0, testCase=null LocalDate</td>
+<td class="success">calculateNetBookValueBegin(int, LocalDate, double, int, double, String)[7]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[1] calculationYear=2022, purchasingDate=2023-03-01, purchaseAmount=200000.0, lifeTimeInMonths=0, expectedNetBookValueEnd=0.0, testCase=Year(purchasingDate) &gt; calculationYear</td>
+<td class="success">calculateNetBookValueEnd(int, LocalDate, double, int, double, String)[1]</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] calculationYear=2022, purchasingDate=2011-03-01, purchaseAmount=200000.0, lifeTimeInMonths=0, expectedNetBookValueEnd=200000.0, testCase=LifeTimeInYears == 0</td>
+<td class="success">calculateNetBookValueEnd(int, LocalDate, double, int, double, String)[2]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] calculationYear=2022, purchasingDate=2011-03-01, purchaseAmount=200000.0, lifeTimeInMonths=11988, expectedNetBookValueEnd=200000.0, testCase=LifeTimeInYears == 999</td>
+<td class="success">calculateNetBookValueEnd(int, LocalDate, double, int, double, String)[3]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[4] calculationYear=2022, purchasingDate=2012-06-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedNetBookValueEnd=0.0, testCase=LastDepreciationYear &lt; calculationYear + 1</td>
+<td class="success">calculateNetBookValueEnd(int, LocalDate, double, int, double, String)[4]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[5] calculationYear=2022, purchasingDate=2020-05-01, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedNetBookValueEnd=146666.6666666667, testCase=else</td>
+<td class="success">calculateNetBookValueEnd(int, LocalDate, double, int, double, String)[5]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[6] calculationYear=2022, purchasingDate=null, purchaseAmount=200000.0, lifeTimeInMonths=120, expectedNetBookValueEnd=0, testCase=null LocalDate</td>
+<td class="success">calculateNetBookValueEnd(int, LocalDate, double, int, double, String)[6]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.4.1</a> at 21.06.2023, 14:39:30</p>
+</div>
+</div>
+</body>
+</html>
