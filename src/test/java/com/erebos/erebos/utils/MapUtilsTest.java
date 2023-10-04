@@ -488,6 +488,9 @@ class MapUtilsTest {
         var innerMap = MapUtils.getMapValueByMapKey(map, "9999");
         assertThat(innerMap.size(), is(0));
 
+        innerMap = MapUtils.getMapValueByMapKey(map, "CC-1");
+        assertThat(innerMap.size(), is(2));
+
         innerMap = MapUtils.getMapValueByMapKey(map, "");
         assertThat(innerMap.size(), is(0));
 
