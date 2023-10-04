@@ -142,21 +142,24 @@ public final class MapUtils {
     }
 
     public static <K, V> Map<K, V> sortMap(final Map<K, V> map, final Comparator<? super V> funcToSortBy) {
-        return getNullableMap(map).entrySet()
+        return getNullableMap(map)
+                .entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(funcToSortBy))
                 .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
     public static <K, V> Map<K, V> filterByPredicate(final Map<K, V> map, final Predicate<V> predicate) {
-        return getNullableMap(map).entrySet()
+        return getNullableMap(map)
+                .entrySet()
                 .stream()
                 .filter(entry -> predicate.test(entry.getValue()))
                 .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
     public static <K, V> Map<K, V> convertListToMap(final List<V> list, final Function<V, K> funcForKey) {
-        return ListUtils.getNullableList(list).stream()
+        return ListUtils.getNullableList(list)
+                .stream()
                 .collect(toMap(funcForKey, Function.identity()));
     }
 
