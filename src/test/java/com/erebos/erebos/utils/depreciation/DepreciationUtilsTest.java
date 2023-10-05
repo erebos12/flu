@@ -9,7 +9,7 @@ import static com.erebos.flu.utils.depreciation.DeprecationUtils.calculateNetBoo
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-final class DeprecationUtilsTest {
+final class DepreciationUtilsTest {
     /**
      * based on scenario 1 calculation for group 1, CC02
      * https://docs.google.com/spreadsheets/d/1nc3H1mpreg3ILyVurEPPxU1CzniAVkS8IP6EY1uUun0/edit#gid=0

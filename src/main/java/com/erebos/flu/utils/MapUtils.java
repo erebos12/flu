@@ -79,8 +79,7 @@ public final class MapUtils {
                 ));
     }
 
-    public static <K, V> List<V> intersectMapAndList(final ImmutableMap<K, List<V>> map,
-                                                     final ImmutableList<K> list) {
+    public static <K, V> List<V> intersectMapAndList(final ImmutableMap<K, List<V>> map, final ImmutableList<K> list) {
         return getNullableMap(map).entrySet()
                 .parallelStream()
                 .filter(item -> list.contains(item.getKey()))
