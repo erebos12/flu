@@ -1,5 +1,6 @@
 package com.erebos.flu.utils;
 
+import com.erebos.erebos.utils.pojo.Person;
 import com.google.common.collect.ImmutableList;
 import com.erebos.flu.utils.pojo.AccountBase;
 import com.erebos.flu.utils.pojo.CostCenter;
@@ -314,18 +315,37 @@ class ListUtilsTest {
                         new CostCenter("cc2", 200.0, "cc2-long-name"),
                         new CostCenter("cc3", 233.99, "cc3-long-name"));
         Predicate<CostCenter> greaterThan100 = cc -> cc.reimbursementNeeds() > 100.0;
-        List<String> onlyShortNames =
-                mapAttributesByFunctionWithPredicateFilter(ImmutableList.copyOf(costCenters), greaterThan100, CostCenter::shortName);
-        assertSame(2, onlyShortNames.size());
-        assertSame("cc2", onlyShortNames.get(0));
-        assertSame("cc3", onlyShortNames.get(1));
+        List<String> onlyShortNamesWithGreaterThan100 =
+                mapAttributesWithPredicate(ImmutableList.copyOf(costCenters), greaterThan100, CostCenter::shortName);
+        assertSame(2, onlyShortNamesWithGreaterThan100.size());
+        assertSame("cc2", onlyShortNamesWithGreaterThan100.get(0));
+        assertSame("cc3", onlyShortNamesWithGreaterThan100.get(1));
+    }
+
+    @Test
+    void testMapAttributesWithPredicate() {
+        // gimme all lastnames from persons who are greater than 170cm and heavier than 80kg
+        // When
+        List<Person> persons =
+                List.of(new Person("Small", "Smally", 25, 166, 60),
+                        new Person("Big", "Biggy", 35, 192, 94),
+                        new Person("VeryBig", "VeryBiggy", 32, 201, 110));
+        // Then
+        Predicate<Person> greaterThan170cm = p -> p.height() > 170;
+        Predicate<Person> greaterThan80kilo = p -> p.weight() > 80;
+        List<String> bigGuys =
+                mapAttributesWithPredicate(ImmutableList.copyOf(persons), greaterThan170cm.and(greaterThan80kilo), Person::lastname);
+        // Expect
+        assertSame(2, bigGuys.size());
+        assertSame("Biggy", bigGuys.get(0));
+        assertSame("VeryBiggy", bigGuys.get(1));
     }
 
     @Test
     void mapAttributesByFunctionWithPredicateFilter_null_args() {
         Predicate<CostCenter> greaterThan100 = cc -> cc.reimbursementNeeds() > 100.0;
         List<String> onlyShortNames =
-                mapAttributesByFunctionWithPredicateFilter(null, greaterThan100, CostCenter::shortName);
+                mapAttributesWithPredicate(null, greaterThan100, CostCenter::shortName);
         assertSame(0, onlyShortNames.size());
     }
 

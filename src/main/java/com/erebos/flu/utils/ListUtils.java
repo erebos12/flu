@@ -100,9 +100,9 @@ public final class ListUtils {
      * to the filtered result, so that only attributes defined by the Function will be returned.
      * Use this function when you want to filter a list and only specific members from the result are relevant.
      */
-    public static <T, U> List<U> mapAttributesByFunctionWithPredicateFilter(final ImmutableList<T> list,
-                                                                            final Predicate<T> predicate,
-                                                                            final Function<T, U> func) {
+    public static <T, U> List<U> mapAttributesWithPredicate(final ImmutableList<T> list,
+                                                            final Predicate<T> predicate,
+                                                            final Function<T, U> func) {
         return filterListByPredicate(list, predicate)
                 .stream()
                 .map(func)
