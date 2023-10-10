@@ -322,7 +322,7 @@ class ListUtilsTest {
                         new CostCenter("cc3", 233.99, "cc3-long-name"));
         Predicate<CostCenter> greaterThan100 = cc -> cc.reimbursementNeeds() > 100.0;
         List<String> onlyShortNamesWithGreaterThan100 =
-                mapAttributesWithPredicate(ImmutableList.copyOf(costCenters), greaterThan100, CostCenter::shortName);
+                getAttributesByListFilter(ImmutableList.copyOf(costCenters), greaterThan100, CostCenter::shortName);
         assertSame(2, onlyShortNamesWithGreaterThan100.size());
         assertSame("cc2", onlyShortNamesWithGreaterThan100.get(0));
         assertSame("cc3", onlyShortNamesWithGreaterThan100.get(1));
@@ -335,7 +335,7 @@ class ListUtilsTest {
         Predicate<Person> isTall = p -> p.height() > 190;
         Predicate<Person> isHeavy = p -> p.weight() > 90;
         List<String> bigGuys =
-                mapAttributesWithPredicate(ImmutableList.copyOf(persons), isTall.and(isHeavy), Person::lastname);
+                getAttributesByListFilter(ImmutableList.copyOf(persons), isTall.and(isHeavy), Person::lastname);
         // Expect
         assertSame(2, bigGuys.size());
         assertSame("Biggy", bigGuys.get(0));
@@ -347,7 +347,7 @@ class ListUtilsTest {
         // gimme all lastnames from persons who are young which is younger than 30 years old
         // Then
         List<String> youngGuys =
-                mapAttributesWithPredicate(ImmutableList.copyOf(persons), p -> p.age() < 30, Person::lastname);
+                getAttributesByListFilter(ImmutableList.copyOf(persons), p -> p.age() < 30, Person::lastname);
         // Expect
         assertSame(1, youngGuys.size());
         assertSame("Smally", youngGuys.get(0));
@@ -357,7 +357,7 @@ class ListUtilsTest {
     void mapAttributesByFunctionWithPredicateFilter_null_args() {
         Predicate<CostCenter> greaterThan100 = cc -> cc.reimbursementNeeds() > 100.0;
         List<String> onlyShortNames =
-                mapAttributesWithPredicate(null, greaterThan100, CostCenter::shortName);
+                getAttributesByListFilter(null, greaterThan100, CostCenter::shortName);
         assertSame(0, onlyShortNames.size());
     }
 

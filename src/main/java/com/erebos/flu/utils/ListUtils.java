@@ -97,12 +97,12 @@ public final class ListUtils {
 
     /**
      * Filters a list by a given Predicate and applies a given Function i.e. Class::function
-     * to the filtered result, so that only attributes defined by the Function will be returned.
+     * to the filtered result, so that only attributes/members defined by the Function will be returned in a list.
      * Use this function when you want to filter a list and only specific members from the result are relevant.
      */
-    public static <T, U> List<U> mapAttributesWithPredicate(final ImmutableList<T> list,
-                                                            final Predicate<T> predicate,
-                                                            final Function<T, U> func) {
+    public static <T, U> List<U> getAttributesByListFilter(final ImmutableList<T> list,
+                                                           final Predicate<T> predicate,
+                                                           final Function<T, U> func) {
         return filterListByPredicate(list, predicate)
                 .stream()
                 .map(func)
