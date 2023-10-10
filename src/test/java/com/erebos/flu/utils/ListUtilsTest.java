@@ -1,6 +1,6 @@
 package com.erebos.flu.utils;
 
-import com.erebos.erebos.utils.pojo.Person;
+import com.erebos.flu.utils.pojo.Person;
 import com.google.common.collect.ImmutableList;
 import com.erebos.flu.utils.pojo.AccountBase;
 import com.erebos.flu.utils.pojo.CostCenter;

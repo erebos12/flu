@@ -1,4 +1,4 @@
-package com.erebos.ant.utils;
+package com.erebos.flu.utils;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
