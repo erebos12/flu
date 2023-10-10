@@ -331,10 +331,10 @@ class ListUtilsTest {
                         new Person("Big", "Biggy", 35, 192, 94),
                         new Person("VeryBig", "VeryBiggy", 32, 201, 110));
         // Then
-        Predicate<Person> greaterThan170cm = p -> p.height() > 170;
-        Predicate<Person> greaterThan80kilo = p -> p.weight() > 80;
+        Predicate<Person> isTall = p -> p.height() > 190;
+        Predicate<Person> isHeavy = p -> p.weight() > 90;
         List<String> bigGuys =
-                mapAttributesWithPredicate(ImmutableList.copyOf(persons), greaterThan170cm.and(greaterThan80kilo), Person::lastname);
+                mapAttributesWithPredicate(ImmutableList.copyOf(persons), isTall.and(isHeavy), Person::lastname);
         // Expect
         assertSame(2, bigGuys.size());
         assertSame("Biggy", bigGuys.get(0));
