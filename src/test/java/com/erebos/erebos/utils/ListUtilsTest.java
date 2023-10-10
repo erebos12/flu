@@ -25,6 +25,11 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 class ListUtilsTest {
 
+    private static final List<Person> persons =
+            List.of(new Person("Small", "Smally", 25, 166, 60),
+                    new Person("Big", "Biggy", 35, 192, 94),
+                    new Person("VeryBig", "VeryBiggy", 32, 201, 110));
+
     private static Stream<Arguments> provideElementIsPresentInListTest() {
         return Stream.of(
                 Arguments.of(List.of("picard"), null, false),
@@ -51,6 +56,7 @@ class ListUtilsTest {
                 Arguments.of(List.of("something"), false)
         );
     }
+
 
     @ParameterizedTest
     @MethodSource("provideElementIsPresentInListTest")
@@ -323,13 +329,8 @@ class ListUtilsTest {
     }
 
     @Test
-    void testMapAttributesWithPredicate() {
+    void testMapAttributesWithPredicate_big_guys() {
         // gimme all lastnames from persons who are greater than 170cm and heavier than 80kg
-        // When
-        List<Person> persons =
-                List.of(new Person("Small", "Smally", 25, 166, 60),
-                        new Person("Big", "Biggy", 35, 192, 94),
-                        new Person("VeryBig", "VeryBiggy", 32, 201, 110));
         // Then
         Predicate<Person> isTall = p -> p.height() > 190;
         Predicate<Person> isHeavy = p -> p.weight() > 90;
@@ -339,6 +340,18 @@ class ListUtilsTest {
         assertSame(2, bigGuys.size());
         assertSame("Biggy", bigGuys.get(0));
         assertSame("VeryBiggy", bigGuys.get(1));
+    }
+
+    @Test
+    void testMapAttributesWithPredicate_young_guys() {
+        // gimme all lastnames from persons who are young which is younger than 30 years old
+        // Then
+        Predicate<Person> isYoung = p -> p.age() < 30;
+        List<String> youngGuys =
+                mapAttributesWithPredicate(ImmutableList.copyOf(persons), isYoung, Person::lastname);
+        // Expect
+        assertSame(1, youngGuys.size());
+        assertSame("Smally", youngGuys.get(0));
     }
 
     @Test
