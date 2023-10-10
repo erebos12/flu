@@ -346,9 +346,8 @@ class ListUtilsTest {
     void testMapAttributesWithPredicate_young_guys() {
         // gimme all lastnames from persons who are young which is younger than 30 years old
         // Then
-        Predicate<Person> isYoung = p -> p.age() < 30;
         List<String> youngGuys =
-                mapAttributesWithPredicate(ImmutableList.copyOf(persons), isYoung, Person::lastname);
+                mapAttributesWithPredicate(ImmutableList.copyOf(persons), p -> p.age() < 30, Person::lastname);
         // Expect
         assertSame(1, youngGuys.size());
         assertSame("Smally", youngGuys.get(0));
