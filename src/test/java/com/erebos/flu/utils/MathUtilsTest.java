@@ -143,4 +143,17 @@ class MathUtilsTest {
         newPercentage = calculateCompoundedPercentage(0, 2);
         assertThat(roundValue(newPercentage), is(0.00));
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "0, true",
+            "-1,false",
+            "8, true",
+            "9, false",
+            "11, false",
+            "-2, false"
+    })
+    void testIsEven(final int value, final boolean expectedResult) {
+        assertThat(isEven(value), is(expectedResult));
+    }
 }

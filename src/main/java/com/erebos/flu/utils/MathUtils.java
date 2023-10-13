@@ -67,5 +67,12 @@ public class MathUtils {
     public static double calculateCompoundedPercentage(final double percentage, final double exponent) {
         return 100 * (Math.pow(1 + percentage / 100.0, exponent) - 1);
     }
+
+    /*
+      Check if a number is even or odd by bit-operations.
+    */
+    public static boolean isEven(int n) {
+        return n >= 0 && (n & (n - 1)) == 0;
+    }
 }
 
