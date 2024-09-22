@@ -120,40 +120,63 @@ class ListUtilsTest {
     }
 
     @Test
-    void testListIntersectionByMatchingFunction() {
-        // use CostCenter with String matching function
+    void testCostCenterIntersectionWithMatchingElements() {
         final CostCenter cc1 = new CostCenter("CC1", 0, "CC1");
         final CostCenter cc2 = new CostCenter("CC2", 0, "CC1");
         final CostCenter cc3 = new CostCenter("CC3", 0, "CC1");
         final CostCenter cc4 = new CostCenter("CC4", 0, "CC1");
         final var l1 = List.of(cc1, cc2, cc3, cc4);
         final var l2 = List.of("CC1", "CC3");
-        final var l3 = List.of("CC5", "CC6");
 
         List<CostCenter> intersection = intersectListsByMatchingFunction(l1, l2, CostCenter::shortName);
 
         assertThat(intersection.size(), is(2));
         assertThat(intersection, containsInAnyOrder(cc1, cc3));
-        // empty intersection
-        intersection = intersectListsByMatchingFunction(l1, l3, CostCenter::shortName);
-        assertThat(intersection.size(), is(0));
+    }
 
-        // use AccountsBase with Long matching function
+    @Test
+    void testCostCenterIntersectionWithNoMatchingElements() {
+        final CostCenter cc1 = new CostCenter("CC1", 0, "CC1");
+        final CostCenter cc2 = new CostCenter("CC2", 0, "CC1");
+        final CostCenter cc3 = new CostCenter("CC3", 0, "CC1");
+        final CostCenter cc4 = new CostCenter("CC4", 0, "CC1");
+        final var l1 = List.of(cc1, cc2, cc3, cc4);
+        final var l3 = List.of("CC5", "CC6");
+
+        List<CostCenter> intersection = intersectListsByMatchingFunction(l1, l3, CostCenter::shortName);
+
+        assertThat(intersection.size(), is(0));
+    }
+
+    @Test
+    void testAccountBaseIntersectionWithMatchingElements() {
         final AccountBase ab1 = new AccountBase(10L);
         final AccountBase ab2 = new AccountBase(20L);
         final AccountBase ab3 = new AccountBase(30L);
         final AccountBase ab4 = new AccountBase(40L);
-
         final var l4 = List.of(ab1, ab2, ab3, ab4);
         final var l5 = List.of(20L, 40L);
-        final var l6 = List.of(50L, 60L);
+
         var intersectionAccounts = intersectListsByMatchingFunction(l4, l5, AccountBase::id);
+
         assertThat(intersectionAccounts.size(), is(2));
         assertThat(intersectionAccounts, containsInAnyOrder(ab2, ab4));
-        // empty intersection
-        intersectionAccounts = intersectListsByMatchingFunction(l4, l6, AccountBase::id);
+    }
+
+    @Test
+    void testAccountBaseIntersectionWithNoMatchingElements() {
+        final AccountBase ab1 = new AccountBase(10L);
+        final AccountBase ab2 = new AccountBase(20L);
+        final AccountBase ab3 = new AccountBase(30L);
+        final AccountBase ab4 = new AccountBase(40L);
+        final var l4 = List.of(ab1, ab2, ab3, ab4);
+        final var l6 = List.of(50L, 60L);
+
+        var intersectionAccounts = intersectListsByMatchingFunction(l4, l6, AccountBase::id);
+
         assertThat(intersectionAccounts.size(), is(0));
     }
+
 
     @Test
     void testSumOfDoubleMemberOverAllItems() {
