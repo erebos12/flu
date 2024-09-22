@@ -18,11 +18,14 @@ public final class ListUtils {
     }
 
     public static <T> boolean checkIfElementIsPresentInList(final List<T> list, final T search) {
-        if (Optional.ofNullable(list).isEmpty() || Optional.ofNullable(search).isEmpty()) {
+        if (Optional.ofNullable(search).isEmpty()) {
             return false;
         }
-        return list.stream().anyMatch(item -> Optional.ofNullable(item).isPresent() && item.equals(search));
+        return Optional.ofNullable(list)
+                .map(l -> l.stream().anyMatch(search::equals))
+                .orElse(false);
     }
+
 
     public static <T> boolean isListNullOrEmpty(final List<T> list) {
         return isNull(list) || list.isEmpty();
@@ -42,7 +45,8 @@ public final class ListUtils {
     public static <T, U> List<T> intersectListsByMatchingFunction(final List<T> list1,
                                                                   final List<U> list2,
                                                                   final Function<T, U> func) {
-        return getNullableList(list1).parallelStream()
+        return getNullableList(list1)
+                .parallelStream()
                 .filter(i -> checkIfElementIsPresentInList(list2, func.apply(i)))
                 .toList();
     }
@@ -53,7 +57,8 @@ public final class ListUtils {
     }
 
     public static <T> ImmutableList<T> filterListByPredicate(final List<T> list, final Predicate<T> predicate) {
-        return ImmutableList.copyOf(getNullableList(list).parallelStream()
+        return ImmutableList.copyOf(getNullableList(list)
+                .parallelStream()
                 .filter(predicate)
                 .toList());
     }

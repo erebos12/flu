@@ -1,10 +1,10 @@
 package com.erebos.flu.utils;
 
-import com.erebos.flu.utils.pojo.Person;
-import com.google.common.collect.ImmutableList;
 import com.erebos.flu.utils.pojo.AccountBase;
 import com.erebos.flu.utils.pojo.CostCenter;
+import com.erebos.flu.utils.pojo.Person;
 import com.erebos.flu.utils.pojo.RevenueAccount;
+import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,6 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.erebos.flu.utils.ListUtils.*;
@@ -419,5 +420,21 @@ class ListUtilsTest {
 
         assertThat(createDistinctSetFromListProperty(emptyList(), CostCenter::reimbursementNeeds).size(), is(0));
         assertThat(createDistinctSetFromListProperty(null, CostCenter::reimbursementNeeds).size(), is(0));
+    }
+
+    @Test
+    void testGroupBy() {
+        List<CostCenter> costCenters =
+                List.of(new CostCenter("cc1", 100.0, "cc1-long-name"),
+                        new CostCenter("cc2", 200.0, "cc2-long-name"),
+                        new CostCenter("cc2", 300.0, "cc2-long-name"),
+                        new CostCenter("cc3", 200.0, "cc3-long-name"),
+                        new CostCenter("cc3", 42, "cc3-long-name"));
+
+        Map<String, Double> resultSet = costCenters.stream()
+                .filter(cc -> cc.reimbursementNeeds() > 100.0)
+                .collect(Collectors.groupingBy(CostCenter::shortName, Collectors.summingDouble(CostCenter::reimbursementNeeds)));
+        System.out.println(resultSet);
+
     }
 }
