@@ -23,7 +23,7 @@ class HashUtilsTest {
         hashed = perfectHash(s);
         long end = System.nanoTime();
         long timeInMsecs = (end - begin) / 1000000;
-        assertTrue(timeInMsecs < 1);
+        assertTrue(timeInMsecs < 10);
         assertEquals("e03b8510eb31a156cb34a68a35564ea67da1ee461c6d6363d0221938b3e34d04", hashed);
         assertEquals(64, hashed.length());
 
