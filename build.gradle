@@ -26,6 +26,11 @@ dependencies {
     // Guava dependency
     implementation "com.google.guava:guava:$guavaVersion"
 
+    // mapstruct
+    implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.6.3'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+
     implementation 'org.testng:testng:7.7.0'
 
     // JUnit 5 testing dependencies
