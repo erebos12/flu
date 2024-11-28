@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 import static com.erebos.flu.utils.MapUtils.*;
 import static java.util.Comparator.comparing;
@@ -311,8 +312,10 @@ class MapUtilsTest {
         map.put(at2.id(), at2);
         map.put(at3.id(), at3);
         map.put(at4.id(), at4);
-        final var filteredMap =
-                filterByPredicate(map, at -> at.name().equals("at 3") || at.name().equals("at 1"));
+        Predicate<AccountTransaction> isAt3 = at -> at.name().equals("at 3");
+        Predicate<AccountTransaction> isAt1 = at -> at.name().equals("at 1");
+
+        final var filteredMap = filterByPredicate(map, isAt3.or(isAt1));
 
         assertThat(filteredMap.size(), is(2));
         assertThat(filteredMap.get("1"), is(at4));
