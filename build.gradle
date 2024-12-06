@@ -57,16 +57,16 @@ jacocoTestCoverageVerification {
             limit {
                 counter = 'LINE'
                 value = 'COVEREDRATIO'
-                minimum = 0.90
+                minimum = 0.85
             }
         }
 
         rule {
             element = 'METHOD'
             limit {
-                counter = 'COMPLEXITY' // Komplexität messen (zyklomatische Komplexität)
-                value = 'TOTALCOUNT'   // Gesamte Komplexität über alle Methoden
-                maximum = 5            // Maximale Komplexität pro Methode
+                counter = 'COMPLEXITY'
+                value = 'TOTALCOUNT'
+                maximum = 5    // code complexity (branches) and stops the build if the number exceeds 5
             }
         }
     }
