@@ -2,6 +2,7 @@ plugins {
     id 'maven-publish'
     id 'java'
     id 'com.google.cloud.artifactregistry.gradle-plugin' version '2.1.5'
+    id 'jacoco' // Add JaCoCo plugin
 }
 
 group = 'com.erebos.flu'
@@ -9,6 +10,7 @@ version = '1.0.39'
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport // Ensure JaCoCo reports are generated after tests
 }
 
 repositories {
@@ -26,10 +28,9 @@ dependencies {
     // Guava dependency
     implementation "com.google.guava:guava:$guavaVersion"
 
-    // mapstruct
+    // MapStruct
     implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.6.3'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
-
 
     implementation 'org.testng:testng:7.7.0'
 
@@ -45,6 +46,32 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
     options.release = 20 // Compile for Java 22
 }
+
+// JaCoCo configuration
+jacoco {
+    toolVersion = "0.8.10" // Specify the JaCoCo version
+}
+
+jacocoTestReport {
+    dependsOn test // Ensure tests run before generating the report
+
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.80 // Set minimum coverage to 80%
+            }
+        }
+    }
+}
+
+test.finalizedBy jacocoTestCoverageVerification // Enforce coverage verification after tests
 
 // Publishing configuration for Maven
 publishing {
