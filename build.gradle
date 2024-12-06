@@ -55,7 +55,18 @@ jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
-                minimum = 0.85
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.90
+            }
+        }
+
+        rule {
+            element = 'METHOD'
+            limit {
+                counter = 'COMPLEXITY' // Komplexität messen (zyklomatische Komplexität)
+                value = 'TOTALCOUNT'   // Gesamte Komplexität über alle Methoden
+                maximum = 5            // Maximale Komplexität pro Methode
             }
         }
     }
