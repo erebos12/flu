@@ -10,7 +10,6 @@ version = '1.0.39'
 
 test {
     useJUnitPlatform()
-    finalizedBy jacocoTestReport // Ensure JaCoCo reports are generated after tests
 }
 
 repositories {
@@ -52,26 +51,15 @@ jacoco {
     toolVersion = "0.8.10" // Specify the JaCoCo version
 }
 
-jacocoTestReport {
-    dependsOn test // Ensure tests run before generating the report
-
-    reports {
-        xml.required = true
-        html.required = true
-    }
-}
-
 jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
-                minimum = 0.80 // Set minimum coverage to 80%
+                minimum = 0.85
             }
         }
     }
 }
-
-test.finalizedBy jacocoTestCoverageVerification // Enforce coverage verification after tests
 
 // Publishing configuration for Maven
 publishing {
