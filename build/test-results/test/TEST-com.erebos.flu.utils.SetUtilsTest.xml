@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.erebos.flu.utils.SetUtilsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-06-21T12:39:30" hostname="DE_NCP9F2K4KH" time="0.004">
-  <properties/>
-  <testcase name="testExtractMembersAsSet()" classname="com.erebos.flu.utils.SetUtilsTest" time="0.003"/>
-  <testcase name="testGetNullableSet()" classname="com.erebos.flu.utils.SetUtilsTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
