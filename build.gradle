@@ -53,6 +53,7 @@ jacoco {
 
 jacocoTestCoverageVerification {
     violationRules {
+        // Rule to enforce minimum coverage of 85%
         rule {
             limit {
                 counter = 'LINE'
@@ -61,12 +62,23 @@ jacocoTestCoverageVerification {
             }
         }
 
+        // Rule to limit complexity
         rule {
             element = 'METHOD'
             limit {
                 counter = 'COMPLEXITY'
                 value = 'TOTALCOUNT'
-                maximum = 5    // code complexity (branches) and stops the build if the number exceeds 5
+                maximum = 5 // Enforce max complexity
+            }
+        }
+
+        // Rule to limit number of lines per method
+        rule {
+            element = 'METHOD'
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 10 // Enforce max lines per method
             }
         }
     }
