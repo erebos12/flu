@@ -3,8 +3,6 @@ package com.erebos.flu.utils;
 import com.erebos.flu.utils.pojo.CostCenter;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
 import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
@@ -13,7 +11,6 @@ import static com.erebos.flu.utils.SetUtils.getNullableSet;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.*;
 
 class SetUtilsTest {
 

@@ -1,7 +1,5 @@
 package com.erebos.flu.utils;
 
-import org.junit.jupiter.api.Test;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
