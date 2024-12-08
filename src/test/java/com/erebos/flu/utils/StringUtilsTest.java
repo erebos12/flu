@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
 import static com.erebos.flu.utils.StringUtils.*;
 import static com.erebos.flu.utils.StringUtils.concatStringsWithDelimiter;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -22,6 +23,11 @@ class StringUtilsTest {
     record TestConfig(
             String firstName,
             String lastName) {
+    }
+
+    @Test
+    void testConstructorThrowsException() throws NoSuchMethodException {
+        testPrivateConstructor(StringUtils.class);
     }
 
     @ParameterizedTest

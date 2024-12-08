@@ -6,10 +6,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static com.erebos.flu.utils.HashUtils.perfectHash;
+import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class HashUtilsTest {
+
+    @Test
+    void testConstructorThrowsException() throws NoSuchMethodException {
+        testPrivateConstructor(HashUtils.class);
+    }
 
     @Test
     void testHashFunction() {

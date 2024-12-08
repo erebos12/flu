@@ -5,15 +5,25 @@ import com.erebos.flu.utils.pojo.DataTypeX;
 import com.erebos.flu.utils.pojo.Type;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
 import static com.erebos.flu.utils.GrouperUtils.groupByEnumMember;
 import static com.erebos.flu.utils.GrouperUtils.groupByStringMember;
+import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.*;
 
 class GrouperUtilsTest {
+
+    @Test
+    void testConstructorThrowsException() throws NoSuchMethodException {
+        testPrivateConstructor(GrouperUtils.class);
+    }
+
 
     @Test
     void testGroupByString() {

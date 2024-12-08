@@ -10,11 +10,17 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static com.erebos.flu.utils.MathUtils.*;
+import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MathUtilsTest {
+
+    @Test
+    void testConstructorThrowsException() throws NoSuchMethodException {
+        testPrivateConstructor(MathUtils.class);
+    }
 
     @Test
     void calculatePercentageValueSimple() {

@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.erebos.flu.utils.ListUtils.*;
+import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
 import static com.erebos.flu.utils.StringUtils.isStringNullOrEmpty;
 import static java.util.Collections.emptyList;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -25,6 +26,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 class ListUtilsTest {
+
+    @Test
+    void testConstructorThrowsException() throws NoSuchMethodException {
+        testPrivateConstructor(ListUtils.class);
+    }
 
     private static final List<Person> persons =
             List.of(new Person("Small", "Smally", 25, 166, 60),

@@ -2,13 +2,19 @@ package com.erebos.flu.utils;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+
 
 import static com.erebos.flu.utils.BooleanUtils.getNullableBoolean;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
+
 
 class BooleanUtilsTest {
+
+    @Test
+    void testConstructorThrowsException() throws NoSuchMethodException {
+        testPrivateConstructor(BooleanUtils.class);
+    }
 
     @Test
     void testGetNullableBoolean() {

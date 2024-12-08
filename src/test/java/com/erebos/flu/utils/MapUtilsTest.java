@@ -11,6 +11,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 import static com.erebos.flu.utils.MapUtils.*;
+import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.groupingBy;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -19,6 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MapUtilsTest {
+
+    @Test
+    void testConstructorThrowsException() throws NoSuchMethodException {
+        testPrivateConstructor(MapUtils.class);
+    }
 
     @Test
     void testRoundValues() {

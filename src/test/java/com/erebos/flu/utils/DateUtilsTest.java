@@ -6,17 +6,25 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
+import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class DateUtilsTest {
+
+    @Test
+    void testConstructorThrowsException() throws NoSuchMethodException {
+        testPrivateConstructor(DateUtilities.class);
+    }
 
     @ParameterizedTest
     @CsvSource({"01.12.2000,dd.MM.yyyy", "1.1.2000,dd.MM.yyyy", "2000-12-01,yyyy-MM-dd", "2000-12-01,yyyy-MM-dd"})
