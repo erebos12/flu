@@ -12,7 +12,7 @@ import static java.util.Objects.isNull;
 public class StringUtils {
 
     public static final String SLASH_DELIMITER = "/";
-    public static final String NO_DELIMITER = "";
+    public static final String EMPTY_STRING = "";
 
     private StringUtils() {
         throw new IllegalStateException("Utility class");
@@ -54,7 +54,9 @@ public class StringUtils {
      * @return s1($delimiter)s2 (if s2 is not empty or null) else s1
      */
     public static String concatStringsWithDelimiter(String s1, String s2, String delimiter) {
-        return s1 + (!isStringNullOrEmpty(s2) ? delimiter + s2 : "");
+        StringBuilder sb = new StringBuilder((!isStringNullOrEmpty(s1) ? s1 : EMPTY_STRING));
+        sb.append((!isStringNullOrEmpty(s2) ? delimiter + s2 : EMPTY_STRING));
+        return sb.toString();
     }
 
     /**

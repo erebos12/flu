@@ -63,8 +63,8 @@ class StringUtilsTest {
     @ParameterizedTest
     @CsvSource({"s1, s2, s1/s2",
             "s1, , s1",
-            " , , null",
-            " , s2, null/s2",})
+            " , , ''",
+            " , s2, /s2",})
     void testConcatStrings(String s1, String s2, String expected) {
         assertThat(concatStringsWithDelimiter(s1, s2, SLASH_DELIMITER), is(expected));
     }
@@ -89,7 +89,7 @@ class StringUtilsTest {
         assertThat(concat, is("s1/s2/"));
         concat = concatStringsWithDelimiter(List.of("s1"), SLASH_DELIMITER);
         assertThat(concat, is("s1"));
-        concat = concatStringsWithDelimiter(List.of("s1", "s2", "s3"), NO_DELIMITER);
+        concat = concatStringsWithDelimiter(List.of("s1", "s2", "s3"), EMPTY_STRING);
         assertThat(concat, is("s1s2s3"));
         // null in the list
         var list = new ArrayList<String>();
@@ -97,10 +97,10 @@ class StringUtilsTest {
         list.add(null);
         list.add("s2");
         list.add(null);
-        concat = concatStringsWithDelimiter(list, NO_DELIMITER);
+        concat = concatStringsWithDelimiter(list, EMPTY_STRING);
         assertThat(concat, is("s1s2"));
         // list is null
-        concatStringsWithDelimiter(null, NO_DELIMITER);
+        concatStringsWithDelimiter(null, EMPTY_STRING);
     }
 
     @Test
