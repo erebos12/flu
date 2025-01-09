@@ -33,9 +33,28 @@ class ListUtilsTest {
     }
 
     private static final List<Person> persons =
-            List.of(new Person("Small", "Smally", 25, 166, 60),
-                    new Person("Big", "Biggy", 35, 192, 94),
-                    new Person("VeryBig", "VeryBiggy", 32, 201, 110));
+            List.of(new Person.Builder()
+                            .surname("Small")
+                            .lastname("Smally")
+                            .age(25)
+                            .height(166)
+                            .weight(60)
+                            .build(),
+                    new Person.Builder()
+                            .surname("Big")
+                            .lastname("Biggy")
+                            .age(35)
+                            .height(192)
+                            .weight(94)
+                            .build(),
+                    new Person.Builder()
+                            .surname("VeryBig")
+                            .lastname("VeryBiggy")
+                            .age(32)
+                            .height(201)
+                            .weight(110)
+                            .build()
+            );
 
     private static Stream<Arguments> provideElementIsPresentInListTest() {
         return Stream.of(
