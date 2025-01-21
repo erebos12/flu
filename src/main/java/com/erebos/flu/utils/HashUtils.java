@@ -7,12 +7,29 @@ import java.security.NoSuchAlgorithmException;
 
 import static java.security.MessageDigest.getInstance;
 
+/**
+ * Utility class providing helper methods for hashing operations.
+ * This class contains methods for generating secure hashes of strings.
+ */
 public class HashUtils {
 
+    /**
+     * Private constructor to prevent instantiation of utility class.
+     *
+     * @throws IllegalStateException when called
+     */
     private HashUtils() {
         throw new IllegalStateException("Utility class");
     }
 
+    /**
+     * Generates a SHA-256 hash of the input string.
+     * The hash is returned as a 64-character hexadecimal string.
+     *
+     * @param s the string to hash
+     * @return the SHA-256 hash as a hexadecimal string
+     * @throws IllegalStateException if the SHA-256 algorithm is not available
+     */
     public static String perfectHash(final String s) {
         try {
             MessageDigest md = getInstance("SHA-256");
