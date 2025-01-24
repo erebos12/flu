@@ -92,7 +92,9 @@ public final class MapUtils {
      * @return true if the map is null or empty, false otherwise
      */
     public static <K, V> boolean isMapNullOrEmpty(final Map<K, V> map) {
-        return map == null || map.isEmpty();
+        return Optional.ofNullable(map)
+                .map(m -> m.isEmpty())
+                .orElse(true);
     }
 
     /**
@@ -349,8 +351,7 @@ public final class MapUtils {
      * @return a map
      */
     public static <K, V> Map<K, V> convertListToMap(final List<V> list, final Function<V, K> funcForKey) {
-        return ListUtils.getNullableList(list)
-                .stream()
+        return ListUtils.getNullableList(list).stream()
                 .collect(toMap(funcForKey, Function.identity()));
     }
 
