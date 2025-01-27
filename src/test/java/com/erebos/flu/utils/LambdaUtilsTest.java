@@ -1,11 +1,12 @@
 package com.erebos.flu.utils;
 
+import com.erebos.flu.utils.pojo.Person;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static com.erebos.flu.utils.LambdaUtils.ifAvailableOrElse;
+import static com.erebos.flu.utils.LambdaUtils.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LambdaUtilsTest {
@@ -122,10 +123,111 @@ class LambdaUtilsTest {
         assertTrue(elseCaseExecuted.get(), "ELSE-case should be executed");
     }
 
+    @Test
+    void testIfAvailableOrElseMutable_ValuePresent_ModifiedInIfCase() {
+        // given
+        String input = "test";
+
+        // when
+        String result = ifAvailableOrElseMutable(
+                input,
+                i -> i.set(i.get().toUpperCase()),
+                i -> i.set("default")
+        );
+
+        // then
+        assertEquals("TEST", result);
+    }
+
+    @Test
+    void testIfAvailableOrElseMutable_ValueNull_ModifiedInElseCase() {
+        // given
+        String input = null;
+
+        // when
+        String result = ifAvailableOrElseMutable(
+                input,
+                i -> i.set(i.get().toUpperCase()),
+                i -> i.set("default")
+        );
+
+        // then
+        assertEquals("default", result);
+    }
+
+    @Test
+    void testIfAvailableOrElseMutable_ValuePresent_NoModification() {
+        // given
+        String input = "test";
+
+        // when
+        String result = ifAvailableOrElseMutable(
+                input,
+                i -> {
+                }, // do nothing
+                i -> i.set("default")
+        );
+
+        // then
+        assertEquals("test", result);
+    }
+
+    @Test
+    void testIfAvailableOrElseMutable_NoModification() {
+        // given
+        Person input = new Person("Alex", 45);
+
+        // when
+        Person p = ifAvailableOrElseMutable(
+                input,
+                i -> {
+                    i.set(new Person("Alex Sahm", 18));
+                },
+                i -> {
+                }  // do nothing
+        );
+
+        // then
+        assertEquals(p.name, "Alex Sahm");
+        assertEquals(p.age, 18);
+    }
+
+    @Test
+    void testIfAvailableOrElseMutable_ValuePresent_ComplexModification() {
+        // given
+        Integer input = 5;
+
+        // when
+        Integer result = ifAvailableOrElseMutable(
+                input,
+                i -> i.set(i.get() * 2),
+                i -> i.set(0)
+        );
+
+        // then
+        assertEquals(10, result);
+    }
+
+    @Test
+    void testIfAvailableOrElseMutable_ValueNull_ComplexModification() {
+        // given
+        Integer input = null;
+
+        // when
+        Integer result = LambdaUtils.ifAvailableOrElseMutable(
+                input,
+                holder -> holder.set(holder.get() * 2),
+                holder -> holder.set(42)
+        );
+
+        // then
+        assertEquals(42, result);
+    }
+
     // Custom object for testing
     static class Person {
-        private final String name;
-        private final int age;
+        private String name;
+        private int age;
 
         Person(String name, int age) {
             this.name = name;
@@ -141,4 +243,3 @@ class LambdaUtilsTest {
         }
     }
 }
-
