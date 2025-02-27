@@ -13,6 +13,11 @@ import static java.security.MessageDigest.getInstance;
  */
 public class HashUtils {
 
+    // The multiplier 33 is widely used in hash functions.
+    // Reason: 33 provides a good balance between performance and collision resistance.
+    private static final int HASH_MULTIPLIER = 33;
+
+
     /**
      * Private constructor to prevent instantiation of utility class.
      *
@@ -40,4 +45,31 @@ public class HashUtils {
             throw new IllegalStateException("Error during hashing!");
         }
     }
+
+    /**
+     * Computes a hash value for a given string.
+     * <p>
+     * This hash function is based on the DJB2 hash algorithm and uses a multiplier
+     * of 33, as it provides a good balance between performance and uniform distribution.
+     * </p>
+     *
+     * @param str The input string for which the hash value is computed.
+     * @return A positive 32-bit hash value of the input string.
+     * If the computed value is negative, its absolute value is returned.
+     */
+    public static int myHashCode(String str) {
+        int hash = 0;
+        for (int i = 0; i < str.length(); i++) {
+            hash = (hash * HASH_MULTIPLIER) + str.charAt(i);
+            hash = hash & 0xFFFFFFFF; // Ensures 32-bit representation
+        }
+        return Math.abs(hash); // Ensures the hash value is always positive
+    }
+
 }
+
+
+
+
+
+

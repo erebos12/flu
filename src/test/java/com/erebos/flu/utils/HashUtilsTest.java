@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.erebos.flu.utils.HashUtils.myHashCode;
 import static com.erebos.flu.utils.HashUtils.perfectHash;
 import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -55,5 +56,13 @@ class HashUtilsTest {
             }
         }
         assertEquals(MAX, hashes.size());
+    }
+
+    @Test
+    void testHashCode() {
+        // myHashCode() must always produce the same value
+        for (int i = 0; i <= 100; i++) {
+            assertEquals(1122183884, myHashCode("Alexander"));
+        }
     }
 }
