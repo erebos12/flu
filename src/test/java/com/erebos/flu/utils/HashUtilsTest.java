@@ -59,10 +59,20 @@ class HashUtilsTest {
     }
 
     @Test
-    void testHashCode() {
+    void test_my_hash_code_always_same() {
         // myHashCode() must always produce the same value
-        for (int i = 0; i <= 100; i++) {
-            assertEquals(1122183884, myHashCode("Alexander"));
-        }
+        var str1 = "Alexander";
+        var str2 = "Alexander";
+        assertEquals(1122183884, myHashCode("Alexander"));
+        // myHashCode() is idempotent and must produce the same value for equal strings
+        assertEquals(myHashCode(str1), myHashCode(str2));
+    }
+
+    // Returns 0 for empty string input
+    @Test
+    public void test_returns_zero_for_empty_string() {
+        String input = "";
+        int hash = myHashCode(input);
+        assertEquals(0, hash);
     }
 }
