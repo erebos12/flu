@@ -13,11 +13,6 @@ import static java.security.MessageDigest.getInstance;
  */
 public class HashUtils {
 
-    // The multiplier 33 is widely used in hash functions.
-    // Reason: 33 provides a good balance between performance and collision resistance.
-    private static final int HASH_MULTIPLIER = 33;
-
-
     /**
      * Private constructor to prevent instantiation of utility class.
      *
@@ -58,13 +53,19 @@ public class HashUtils {
      * If the computed value is negative, its absolute value is returned.
      */
     public static int myHashCode(String str) {
+        if (str == null) return 0; // Handle null case safely
+
         int hash = 0;
+        final int HASH_MULTIPLIER = 33;
+
         for (int i = 0; i < str.length(); i++) {
             hash = (hash * HASH_MULTIPLIER) + str.charAt(i);
-            hash = hash & 0xFFFFFFFF; // Ensures 32-bit representation
         }
-        return Math.abs(hash); // Ensures the hash value is always positive
+
+        // Convert to an unsigned 32-bit integer representation
+        return hash & 0x7FFFFFFF; // Ensures positive hash without Math.abs()
     }
+
 
 }
 
