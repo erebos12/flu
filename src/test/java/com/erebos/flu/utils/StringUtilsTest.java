@@ -14,6 +14,7 @@ import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstru
 import static com.erebos.flu.utils.StringUtils.*;
 import static com.erebos.flu.utils.StringUtils.concatStringsWithDelimiter;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.in;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -126,21 +127,29 @@ class StringUtilsTest {
 
     }
 
-    private String reverseString(String input) {
-        if (input == null) {
-            return null;
-        }
-        int first = 0;
-        int last = input.length() - 1;
-        char[] c = input.toCharArray();
-        while (first < last) {
-            char temp = c[first];
-            c[first] = c[last];
-            c[last] = temp;
-            first++;
-            last--;
-        }
-        return new String(c);
+    @ParameterizedTest
+    @CsvSource({"anna, false",
+            "helo, true",
+            "123, true",
+            "44567, false",
+            ", false",
+            "'', true",
+    })
+    void testUniqueCharsInString(final String input, final boolean expected) {
+        assertThat(hasUniqueChars(input), is(expected));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "anna, false",
+            "helo, true",
+            "123, true",
+            "44567, false",
+            ", false",
+            "'', true"
+    })
+    void testHasUniqueChars2(final String input, final boolean expected) {
+        assertThat(hasUniqueChars2(input), is(expected));
     }
 }
 

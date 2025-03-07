@@ -1,9 +1,6 @@
 package com.erebos.flu.utils;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.StringJoiner;
+import java.util.*;
 import java.util.function.Function;
 
 import static com.erebos.flu.utils.ListUtils.getNullableList;
@@ -47,9 +44,9 @@ public class StringUtils {
      * Safely extracts a string member from an object using a provided function.
      * If the object is null or the function returns null, returns an empty string.
      *
-     * @param obj the source object
+     * @param obj  the source object
      * @param func the function to extract the string
-     * @param <T> the type of the source object
+     * @param <T>  the type of the source object
      * @return the extracted string or empty string if null
      */
     public static <T> String getStringMemberFromObj(final T obj, final Function<T, String> func) {
@@ -133,5 +130,87 @@ public class StringUtils {
         if (isStringNullOrEmpty(parameterValue)) {
             throw new IllegalStateException("Mandatory parameter '" + parameterName + "' not set in " + aClass.getSimpleName());
         }
+    }
+
+    /**
+     * Reverses the given string.
+     * <p>
+     * This method takes an input string and returns a new string with the characters
+     * in reverse order. If the input is null, it returns null.
+     *
+     * @param input the string to reverse
+     * @return the reversed string, or null if the input is null
+     */
+    public static String reverseString(String input) {
+        if (input == null) {
+            return null;
+        }
+        int first = 0;
+        int last = input.length() - 1;
+        char[] c = input.toCharArray();
+        while (first < last) {
+            char temp = c[first];
+            c[first] = c[last];
+            c[last] = temp;
+            first++;
+            last--;
+        }
+        return new String(c);
+    }
+
+    /**
+     * Determines if a string has all unique characters using a brute-force approach.
+     * <p>
+     * This method compares every character in the string with every other character.
+     * If a duplicate character is found, it returns false; otherwise, it returns true.
+     * <p>
+     * Time Complexity:
+     * - Worst-case: O(n²) due to the nested loop checking all pairs of characters.
+     * - Best-case: O(1) if an early duplicate is found.
+     * - Space Complexity: O(1) (no additional data structures used).
+     *
+     * @param input the input string to check
+     * @return true if all characters in the string are unique, false otherwise
+     */
+    public static boolean hasUniqueChars(String input) {
+        if (input == null) {
+            return false;
+        }
+        for (int i = 0; i < input.length(); i++) {
+            for (int j = i + 1; j < input.length(); j++) {
+                if (input.charAt(i) == input.charAt(j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Determines if a string has all unique characters using a HashSet.
+     * <p>
+     * This method iterates through the string and stores each character in a HashSet.
+     * If a duplicate character is found (i.e., already in the HashSet), it returns false.
+     * Otherwise, it returns true.
+     * <p>
+     * Time Complexity:
+     * - Average-case: O(n) because HashSet operations (add and contains) run in O(1) time.
+     * - Worst-case: O(n) in case of hash collisions, but still significantly faster than O(n²).
+     * - Space Complexity: O(n) due to storing up to n characters in the HashSet.
+     *
+     * @param input the input string to check
+     * @return true if all characters in the string are unique, false otherwise
+     */
+    public static boolean hasUniqueChars2(String input) {
+        if (input == null) {
+            return false;
+        }
+        Set<Character> seen = new HashSet<>();
+        for (char c : input.toCharArray()) {
+            if (!seen.add(c)) {  // HashSet returns false if c is already in the set
+                return false;
+            }
+        }
+        return true;
     }
 }
