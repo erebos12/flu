@@ -43,7 +43,7 @@ dependencies {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
-    options.release = 20 // Compile for Java 22
+    options.release = 20
 }
 
 // JaCoCo configuration
