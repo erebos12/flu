@@ -113,5 +113,34 @@ class StringUtilsTest {
         expectedException = assertThrows(IllegalStateException.class, () -> validateStringParameter(testConfig2.lastName, "lastName", TestConfig.class));
         assertEquals("Mandatory parameter 'lastName' not set in TestConfig", expectedException.getMessage());
     }
+
+    @ParameterizedTest
+    @CsvSource({"anna, anna",
+            "hello, olleh",
+            "world, dlrow",
+            ", ",
+            "'', ''",
+    })
+    void testReverseString(final String input, final String reversed) {
+        assertThat(reverseString(input), is(reversed));
+
+    }
+
+    private String reverseString(String input) {
+        if (input == null) {
+            return null;
+        }
+        int first = 0;
+        int last = input.length() - 1;
+        char[] c = input.toCharArray();
+        while (first < last) {
+            char temp = c[first];
+            c[first] = c[last];
+            c[last] = temp;
+            first++;
+            last--;
+        }
+        return new String(c);
+    }
 }
 
