@@ -213,4 +213,33 @@ public class StringUtils {
         }
         return true;
     }
+
+    /**
+     * Checks if two given strings are permutations of each other.
+     * A permutation means both strings contain the same characters
+     * with the same frequency but possibly in a different order.
+     *
+     * @param s1 The first string to check.
+     * @param s2 The second string to check.
+     * @return {@code true} if {@code s1} is a permutation of {@code s2}, otherwise {@code false}.
+     * @throws IllegalArgumentException if either {@code s1} or {@code s2} is {@code null}.
+     */
+    public static boolean isPermutation(String s1, String s2) {
+        if (s1 == null || s2 == null) {
+            throw new IllegalArgumentException("Input strings must not be null");
+        }
+        if (s1.length() != s2.length()) return false;
+
+        int[] charCount = new int[128]; // ASCII character count
+        for (char c : s1.toCharArray()) {
+            charCount[c] += 1;
+        }
+        for (char c : s2.toCharArray()) {
+            if (--charCount[c] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

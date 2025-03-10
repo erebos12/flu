@@ -8,6 +8,8 @@ import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.erebos.flu.utils.PrivateConstructorTestUtil.testPrivateConstructor;
@@ -150,6 +152,20 @@ class StringUtilsTest {
     })
     void testHasUniqueChars2(final String input, final boolean expected) {
         assertThat(hasUniqueChars2(input), is(expected));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "aab, baa, true",
+            "helo, oleh, true",
+            "123, 333, false",
+            "44, 44, true",
+            "441, 44, false",
+            "7, 7, true",
+            "'', '', true",
+    })
+    void testisPermutation(final String s1, final String s2, final boolean expected) {
+        assertThat(isPermutation(s1, s2), is(expected));
     }
 }
 
