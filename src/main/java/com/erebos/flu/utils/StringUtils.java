@@ -242,4 +242,48 @@ public class StringUtils {
         return true;
     }
 
+    /**
+     * Checks whether two strings are exactly one edit operation away from each other.
+     *
+     * <p>An edit operation is defined as one of the following:
+     * <ul>
+     *   <li><b>Insertion</b> of a single character into one of the strings</li>
+     *   <li><b>Deletion</b> of a single character from one of the strings</li>
+     *   <li><b>Replacement</b> of a single character in one of the strings</li>
+     * </ul>
+     * The method returns {@code true} if exactly one of these operations is required to make
+     * the strings identical. Otherwise, it returns {@code false}.
+     *
+     * @param s1 The first string.
+     * @param s2 The second string.
+     * @return {@code true} if the strings can be made equal with exactly one edit operation,
+     * otherwise {@code false}.
+     */
+    public static boolean isOneAway(String s1, String s2) {
+        if (Math.abs(s1.length() - s2.length()) > 1) return false;
+
+        String shorter = s1.length() < s2.length() ? s1 : s2;
+        String longer = s1.length() < s2.length() ? s2 : s1;
+
+        int i = 0, j = 0, diff = 0;
+
+        while (i < shorter.length() && j < longer.length()) {
+            if (shorter.charAt(i) != longer.charAt(j)) {
+                if (++diff > 1) {
+                    return false;
+                }
+                if (shorter.length() < longer.length()) {
+                    j++; // Insert/Delete → nur längeren String weiterschieben
+                } else {
+                    i++;
+                    j++;
+                } // Replace → beide weiterschieben
+            } else {
+                i++;
+                j++;
+            }
+        }
+        return true;
+    }
+
 }

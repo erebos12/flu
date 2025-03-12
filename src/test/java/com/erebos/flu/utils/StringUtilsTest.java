@@ -164,8 +164,24 @@ class StringUtilsTest {
             "7, 7, true",
             "'', '', true",
     })
-    void testisPermutation(final String s1, final String s2, final boolean expected) {
+    void testIsPermutation(final String s1, final String s2, final boolean expected) {
         assertThat(isPermutation(s1, s2), is(expected));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "pale, ple, true",
+            "pale, plle, true",
+            "pale, elap, false",
+            "pales, pale, true",
+            "pale, pales, true",
+            "pale, bale, true",
+            "pale, pale, true",
+            "pa, pale, false",
+            "pale, bake, false",
+    })
+    void testOneWay(final String s1, final String s2, final boolean expected) {
+        assertThat(isOneAway(s1, s2), is(expected));
     }
 }
 
